@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday Gift 🎁</title>
+  <title>Birthday Gift</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/animations.css">
@@ -15,49 +15,170 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .gift-card {
       max-width: 550px;
       padding: 4rem 3rem;
       text-align: center;
     }
-    
+
     .gift-box {
-      font-size: 8rem;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       animation: gentleBounce 2s ease-in-out infinite;
-      margin: 2rem 0;
+      margin: 2.5rem 0 1.25rem;
+      width: 240px;
+      height: 235px;
+      position: relative;
+      overflow: visible;
     }
-    
+
+    .gift-box::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      width: 132px;
+      height: 88px;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 28% 55%, rgba(255, 249, 241, 0.98) 0 34%, transparent 35%),
+        radial-gradient(circle at 72% 55%, rgba(255, 249, 241, 0.98) 0 34%, transparent 35%);
+      filter: drop-shadow(0 6px 10px rgba(75, 58, 42, 0.12));
+      z-index: 4;
+    }
+
+    .gift-box::after {
+      content: '';
+      position: absolute;
+      top: 52px;
+      left: 50%;
+      width: 26px;
+      height: 26px;
+      background: rgba(255, 249, 241, 1);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      box-shadow: 0 4px 8px rgba(75, 58, 42, 0.12);
+    }
+
+    .gift-box-label {
+      position: relative;
+      z-index: 6;
+      margin-top: 1.4rem;
+      color: rgba(255, 249, 241, 0.96);
+      font-family: 'Pacifico', cursive;
+      font-size: 2.1rem;
+      line-height: 1;
+      text-shadow: 0 3px 10px rgba(75, 58, 42, 0.18);
+      pointer-events: none;
+    }
+
+    .gift-lid,
+    .gift-base {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 26px;
+      background: linear-gradient(145deg, #ffb89c 0%, #ff8b72 45%, #ff7659 100%);
+      box-shadow: inset -12px -14px 24px rgba(190, 70, 45, 0.18), inset 10px 10px 18px rgba(255, 231, 214, 0.45);
+    }
+
+    .gift-lid {
+      top: 62px;
+      width: 228px;
+      height: 78px;
+      z-index: 3;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow:
+        inset -12px -14px 24px rgba(190, 70, 45, 0.18),
+        inset 10px 10px 18px rgba(255, 231, 214, 0.45),
+        0 12px 18px rgba(255, 138, 107, 0.2);
+    }
+
+    .gift-base {
+      top: 116px;
+      width: 210px;
+      height: 110px;
+      z-index: 2;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      box-shadow:
+        inset -12px -14px 24px rgba(190, 70, 45, 0.2),
+        inset 10px 10px 18px rgba(255, 231, 214, 0.4),
+        0 24px 42px rgba(255, 138, 107, 0.3);
+    }
+
+    .gift-ribbon-v,
+    .gift-ribbon-h {
+      position: absolute;
+      background: linear-gradient(180deg, #fff8ef 0%, #ffe3cf 100%);
+      z-index: 5;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .gift-ribbon-v {
+      top: 60px;
+      left: 50%;
+      width: 30px;
+      height: 166px;
+      transform: translateX(-50%);
+      border-radius: 18px;
+    }
+
+    .gift-ribbon-h {
+      top: 128px;
+      left: 50%;
+      width: 228px;
+      height: 28px;
+      transform: translateX(-50%);
+      border-radius: 18px;
+    }
+
+    .gift-shine {
+      position: absolute;
+      top: 76px;
+      left: 34px;
+      width: 74px;
+      height: 126px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.05));
+      border-radius: 999px;
+      transform: rotate(8deg);
+      z-index: 4;
+      pointer-events: none;
+    }
+
     @keyframes gentleBounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-20px); }
     }
-    
+
     .gift-box:hover {
-      transform: scale(1.2) rotate(10deg);
+      transform: scale(1.06) rotate(-3deg);
     }
-    
+
     .gift-instruction {
       font-size: 1.3rem;
       color: var(--text-light);
       margin-bottom: 2rem;
       animation: gentlePulse 2s ease-in-out infinite;
     }
-    
+
     .gift-message {
       opacity: 0;
       transform: scale(0);
       transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
-    
+
     .gift-message.revealed {
       opacity: 1;
       transform: scale(1);
     }
-    
+
     .gift-title {
       font-family: 'Pacifico', cursive;
       font-size: 2.5rem;
@@ -67,27 +188,64 @@
       background-clip: text;
       margin-bottom: 1.5rem;
     }
-    
+
     .gift-text {
       font-size: 1.3rem;
       color: var(--text-dark);
       line-height: 1.8;
-      margin: 1.5rem 0;
+      margin: 0;
     }
-    
+
     .promise-box {
       background: linear-gradient(135deg, var(--cream), white);
       padding: 2rem;
       border-radius: 20px;
-      margin: 2rem 0;
+      margin: 2rem 0 1rem;
       border: 2px solid var(--soft-rose);
       box-shadow: 0 10px 30px var(--shadow-soft);
     }
 
-    /* Video styles for surprise */
-    .video-wrap { margin-top: 1.2rem; border-radius: 12px; overflow: hidden; }
-    .video-wrap video { width: 100%; height: auto; display: block; max-height: 420px; object-fit: cover; border-radius: 12px; }
-    .video-fallback { padding: 1rem; text-align: center; color: var(--text-light); font-size: 0.95rem; }
+    .message-intro {
+      margin: 1rem 0 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(135deg, rgba(255, 217, 168, 0.24), rgba(255, 255, 255, 0.96));
+      border: 1px solid rgba(255, 138, 107, 0.15);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(255, 138, 107, 0.08);
+    }
+
+    .video-label {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--light-red);
+      margin: 1rem 0 0.75rem;
+    }
+
+    .video-wrap {
+      margin-top: 0.5rem;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 18px 40px rgba(75, 58, 42, 0.18);
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .video-fallback {
+      padding: 1rem;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
 
     @media (max-width: 768px) {
       .gift-container {
@@ -110,14 +268,48 @@
       }
 
       .gift-box {
-        font-size: 5.5rem;
         margin: 1.25rem 0;
+        width: 200px;
+        height: 200px;
+      }
+
+      .gift-lid {
+        width: 190px;
+        height: 66px;
+        top: 58px;
+      }
+
+      .gift-base {
+        width: 176px;
+        height: 96px;
+        top: 106px;
+      }
+
+      .gift-ribbon-h {
+        width: 190px;
+        top: 118px;
+      }
+
+      .gift-ribbon-v {
+        height: 144px;
+        top: 56px;
+      }
+
+      .gift-shine {
+        top: 74px;
+        left: 30px;
+        width: 62px;
+        height: 108px;
+      }
+
+      .promise-box,
+      .message-intro {
+        padding: 1.25rem;
+        border-radius: 16px;
       }
 
       .promise-box {
-        padding: 1.25rem;
-        margin: 1.5rem 0;
-        border-radius: 16px;
+        margin: 1.5rem 0 1rem;
       }
 
       .video-wrap video {
@@ -146,48 +338,98 @@
       }
 
       .gift-box {
-        font-size: 4.5rem;
+        width: 176px;
+        height: 176px;
       }
 
-      .promise-box {
+      .gift-lid {
+        width: 168px;
+        height: 58px;
+        top: 54px;
+      }
+
+      .gift-base {
+        width: 154px;
+        height: 84px;
+        top: 98px;
+      }
+
+      .gift-ribbon-h {
+        width: 168px;
+        height: 24px;
+        top: 108px;
+      }
+
+      .gift-ribbon-v {
+        width: 24px;
+        height: 128px;
+        top: 52px;
+      }
+
+      .gift-box::before {
+        width: 108px;
+        height: 74px;
+        top: 16px;
+      }
+
+      .gift-box-label {
+        font-size: 1.7rem;
+      }
+
+      .gift-shine {
+        top: 66px;
+        left: 28px;
+        width: 52px;
+        height: 92px;
+      }
+
+      .promise-box,
+      .message-intro {
         padding: 1rem;
       }
     }
-    
   </style>
 </head>
 <body>
 
 <div class="gift-container fade-in">
   <div class="card gift-card">
-    <h1 class="gift-title">🎁 A Special Birthday Surprise 🎂</h1>
-    
-    <p class="gift-instruction" id="instruction">A little effort for the most beautiful girl... Tap the gift to play your birthday video! 🍿❤️</p>
-    
-    <div class="gift-box" id="giftBox" onclick="openGift()">🎁</div>
-    
+    <h1 class="gift-title">A Special Birthday Surprise</h1>
+
+    <p class="gift-instruction" id="instruction">A little effort for the most beautiful girl... Tap the gift to play your birthday video.</p>
+
+    <div class="gift-box" id="giftBox" onclick="openGift()">
+      <span class="gift-lid"></span>
+      <span class="gift-base"></span>
+      <span class="gift-ribbon-v"></span>
+      <span class="gift-ribbon-h"></span>
+      <span class="gift-shine"></span>
+      <span class="gift-box-label">Gift</span>
+    </div>
+
     <div class="gift-message" id="giftMessage">
       <div class="promise-box">
-        <h2>My Wish For You 💖</h2>
-      
-
+        <h2>My Wish For You</h2>
       </div>
-      <p>
-            Happy Birthday, Sakina! I wish you endless happiness, love, and laughter today and always.<br>
-            Tap 👇 to play your special birthday video! 💝
+
+      <div class="message-intro">
+        <p class="gift-text">
+          Happy Birthday, Sakina! I wish you endless happiness, love, and laughter today and always.
+          Your special video is waiting just below. Tap play and enjoy every moment.
         </p>
+      </div>
 
-
+      <p class="video-label">Your Birthday Video</p>
       <div class="video-wrap">
         <video id="surpriseVideo" poster="../assets/images/cover.png" playsinline controls>
-          <source src="../assets/videos/surprise.mp4" type="video/mp4">
-          <p class="video-fallback">If the video doesn't play, place your video at <strong>assets/videos/surprise.mp4</strong> or update the `src` attribute.</p>
+          <source src="../assets/images/copy_F02B3C95-60DA-49B3-B3CB-301C599C9D86.mp4" type="video/mp4">
+          <p class="video-fallback">If the video does not play, update the source path or convert it to MP4 for wider browser support.</p>
         </video>
       </div>
-      
+
       <button class="next-btn" onclick="nextPage()" style="background: linear-gradient(135deg, var(--light-red), var(--blush)); color: white; margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.8rem;">
         <span>Continue</span>
-        <span class="btn-emoji">🎉</span>
+        <span class="btn-emoji">Next</span>
       </button>
     </div>
   </div>
@@ -196,49 +438,44 @@
 <script src="../js/effects.js"></script>
 <script>
   let isOpened = false;
-  
+
   function openGift() {
     if (isOpened) return;
     isOpened = true;
-    
+
     const giftBox = document.getElementById('giftBox');
     const giftMessage = document.getElementById('giftMessage');
     const instruction = document.getElementById('instruction');
-    
-    // Animate gift opening
+
     giftBox.style.transform = 'scale(1.5) rotate(360deg)';
     giftBox.style.opacity = '0';
-    
-    // Create confetti and sparkles
+
     createConfetti();
     setTimeout(() => createSparkles(), 300);
     setTimeout(() => createSparkles(), 600);
-    
-    // Hide instruction
+
     instruction.style.opacity = '0';
-    
-    // Show message
+
     setTimeout(() => {
       giftBox.style.display = 'none';
       instruction.style.display = 'none';
       giftMessage.classList.add('revealed');
 
-      // Try to play surprise video (muted autoplay to avoid blocked playback)
-      const v = document.getElementById('surpriseVideo');
-      if (v) {
+      const video = document.getElementById('surpriseVideo');
+      if (video) {
         try {
-          v.muted = true;
-          v.currentTime = 0;
-          v.play().catch(() => {
-            // autoplay may be blocked; keep controls for manual play
+          video.muted = true;
+          video.currentTime = 0;
+          video.play().catch(() => {
+            // Autoplay can be blocked; controls remain visible for manual play.
           });
-        } catch (e) {
-          // ignore
+        } catch (error) {
+          // Ignore playback errors and keep the controls available.
         }
       }
     }, 800);
   }
-  
+
   function nextPage() {
     pageTransition('final.html');
   }
