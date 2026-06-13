@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Birthday Question 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .question-container {
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .question-card {
+      max-width: 550px;
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+    
+    .question-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--light-red), var(--blush));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+      animation: gentlePulse 2s ease-in-out infinite;
+    }
+    
+    .question-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+    
+    .answer-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .yes-btn {
+      background: linear-gradient(135deg, var(--light-red), var(--blush));
+      color: white;
+      padding: 1.5rem 3rem;
+      font-size: 1.5rem;
+      box-shadow: 0 15px 40px var(--shadow-medium), 0 0 30px var(--glow);
+      animation: rainbow 3s ease-in-out infinite;
+    }
+    
+    @keyframes rainbow {
+      0%, 100% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(15deg); }
+    }
+    
+    .hint-text {
+      margin-top: 1.5rem;
+      color: var(--text-light);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="question-container fade-in">
+  <div class="card question-card">
+    <h1 class="question-title">Ready to celebrate? 🥳</h1>
+    <p class="question-subtitle">Let's make this birthday unforgettable... 🎉</p>
+
+    <div class="answer-buttons">
+      <button class="yes-btn" onclick="sayYes(this)">
+        <span>LET'S GO! 🎉</span>
+      </button>
+      
+      <button class="yes-btn" onclick="sayYes(this)">
+        <span>Absolutely! 🎂</span>
+      </button>
+    </div>
+    
+    <p class="hint-text">Either answer means party time! 🎈</p>
+  </div>
+</div>
+
+<script src="../js/effects.js"></script>
+<script>
+  function sayYes(button) {
+    // Create massive confetti explosion
+    createConfetti();
+    
+    // Add celebratory sparkles
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => createSparkles(), i * 200);
+    }
+    
+    // Animate button
+    button.style.transform = 'scale(1.2)';
+    button.style.transition = 'transform 0.3s ease';
+    
+    setTimeout(() => {
+      pageTransition('gift.html');
+    }, 1500);
+  }
+</script>
+
+</body>
+</html>

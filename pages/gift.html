@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Gift 🎁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .gift-container {
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gift-card {
+      max-width: 550px;
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+    
+    .gift-box {
+      font-size: 8rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: inline-block;
+      animation: gentleBounce 2s ease-in-out infinite;
+      margin: 2rem 0;
+    }
+    
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .gift-box:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+    
+    .gift-instruction {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      animation: gentlePulse 2s ease-in-out infinite;
+    }
+    
+    .gift-message {
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .gift-message.revealed {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .gift-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--light-red), var(--blush));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+    
+    .gift-text {
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin: 1.5rem 0;
+    }
+    
+    .promise-box {
+      background: linear-gradient(135deg, var(--cream), white);
+      padding: 2rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      border: 2px solid var(--soft-rose);
+      box-shadow: 0 10px 30px var(--shadow-soft);
+    }
+
+    /* Video styles for surprise */
+    .video-wrap { margin-top: 1.2rem; border-radius: 12px; overflow: hidden; }
+    .video-wrap video { width: 100%; height: auto; display: block; max-height: 420px; object-fit: cover; border-radius: 12px; }
+    .video-fallback { padding: 1rem; text-align: center; color: var(--text-light); font-size: 0.95rem; }
+    
+  </style>
+</head>
+<body>
+
+<div class="gift-container fade-in">
+  <div class="card gift-card">
+    <h1 class="gift-title">🎁 A Special Birthday Surprise 🎂</h1>
+    
+    <p class="gift-instruction" id="instruction">Click the gift to open your birthday message! 👇</p>
+    
+    <div class="gift-box" id="giftBox" onclick="openGift()">🎁</div>
+    
+    <div class="gift-message" id="giftMessage">
+      <div class="promise-box">
+        <h2>My Wish For You 💖</h2>
+
+<p>
+I wish you endless happiness, countless reasons to smile, and beautiful memories that stay with you forever.
+<br><br>
+
+May this new year of your life bring you success in everything you do, peace in your heart, and opportunities that lead you closer to your dreams.
+<br><br>
+
+May every day be filled with laughter, love, good health, and moments that make you truly happy.
+<br><br>
+
+May your heart always be at peace, your smile never fade, and your life be filled with people and moments that make you feel truly special.
+<br><br>
+
+You deserve all the joy, kindness, and wonderful things that life has to offer — today, on your birthday, and every day that follows.
+<br><br>
+
+Happy Birthday, Sakina! 🎂✨
+<br>
+May this year bring you everything you've been hoping for and more.
+<br><br>
+
+With lots of good wishes,
+<br>
+Muqtar Ali 💖
+</p>
+      </div>
+
+      <div class="video-wrap">
+        <video id="surpriseVideo" poster="../assets/images/cover.png" playsinline controls>
+          <source src="../assets/videos/surprise.mp4" type="video/mp4">
+          <p class="video-fallback">If the video doesn't play, place your video at <strong>assets/videos/surprise.mp4</strong> or update the `src` attribute.</p>
+        </video>
+      </div>
+      
+      <button class="next-btn" onclick="nextPage()" style="background: linear-gradient(135deg, var(--light-red), var(--blush)); color: white; margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.8rem;">
+        <span>Continue</span>
+        <span class="btn-emoji">🎉</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/effects.js"></script>
+<script>
+  let isOpened = false;
+  
+  function openGift() {
+    if (isOpened) return;
+    isOpened = true;
+    
+    const giftBox = document.getElementById('giftBox');
+    const giftMessage = document.getElementById('giftMessage');
+    const instruction = document.getElementById('instruction');
+    
+    // Animate gift opening
+    giftBox.style.transform = 'scale(1.5) rotate(360deg)';
+    giftBox.style.opacity = '0';
+    
+    // Create confetti and sparkles
+    createConfetti();
+    setTimeout(() => createSparkles(), 300);
+    setTimeout(() => createSparkles(), 600);
+    
+    // Hide instruction
+    instruction.style.opacity = '0';
+    
+    // Show message
+    setTimeout(() => {
+      giftBox.style.display = 'none';
+      instruction.style.display = 'none';
+      giftMessage.classList.add('revealed');
+
+      // Try to play surprise video (muted autoplay to avoid blocked playback)
+      const v = document.getElementById('surpriseVideo');
+      if (v) {
+        try {
+          v.muted = true;
+          v.currentTime = 0;
+          v.play().catch(() => {
+            // autoplay may be blocked; keep controls for manual play
+          });
+        } catch (e) {
+          // ignore
+        }
+      }
+    }, 800);
+  }
+  
+  function nextPage() {
+    pageTransition('final.html');
+  }
+</script>
+
+</body>
+</html>

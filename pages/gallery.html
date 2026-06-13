@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Memories 📸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/gallery.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .gallery-card {
+      max-width: 980px;
+      padding: 3rem;
+    }
+
+    .photo-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .photo-item {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 35px rgba(255, 138, 107, 0.14);
+      background: #fff;
+      min-height: 220px;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-overlay {
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.35) 100%);
+    }
+
+    .featured-photo {
+      grid-column: 1 / -1;
+      min-height: 320px;
+    }
+
+    .featured-photo img {
+      min-height: 320px;
+    }
+
+    .photo-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, #fff 0%, #FFF9F1 100%);
+      color: var(--text-dark);
+    }
+
+    .photo-text h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      color: var(--light-red);
+    }
+
+    .photo-text p { font-size: 1rem; color: var(--text-light); }
+
+    @media (max-width: 768px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-photo,
+      .featured-photo img {
+        min-height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="gallery-container fade-in">
+  <div class="card gallery-card">
+    <h1>🎂 Birthday Memories & Smiles 🎉</h1>
+    <p class="subtitle">A few snapshots to celebrate our love ❤️</p>
+   
+
+    <div class="photo-grid">
+      <div class="photo-item featured-photo">
+        <img src="../assets/images/img1.jpeg" alt="Memory 1">
+        <div class="photo-overlay">
+          <p class="photo-caption">Happy Birthday, Sakina! 🎉</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <img src="../assets/images/img3.jpeg" alt="Memory 2">
+        <div class="photo-overlay">
+          <p class="photo-caption">Keep Smiling 🙂</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <img src="../assets/images/img4.jpeg" alt="Memory 3">
+        <div class="photo-overlay">
+          <p class="photo-caption">One more reason to smile 🎂✨</p>
+        </div>
+      </div>
+    
+    </div>
+
+    <button class="next-btn" onclick="nextPage()">
+      <span>Continue</span>
+      <span class="btn-emoji">🎁</span>
+    </button>
+  </div>
+</div>
+
+<script src="../js/effects.js"></script>
+<script src="../js/music.js"></script>
+<script>
+  function nextPage() {
+    pageTransition('letter.html');
+  }
+  
+  // Add gentle animation to photos
+  document.addEventListener('DOMContentLoaded', () => {
+    const photos = document.querySelectorAll('.photo-item');
+    photos.forEach((photo, index) => {
+      photo.style.animationDelay = (index * 0.1) + 's';
+      photo.classList.add('slide-up');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, var(--light-red) 0%, var(--blush) 50%, var(--pastel-pink) 100%);
+    }
+    
+    .forever-container {
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .forever-card {
+      background: rgba(255, 255, 255, 0.95);
+      max-width: 600px;
+      padding: 4rem 3rem;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(255, 107, 157, 0.4), 0 0 100px rgba(255, 182, 193, 0.5);
+    }
+    
+    .forever-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, var(--light-red), var(--blush));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+      animation: gentlePulse 2s ease-in-out infinite;
+    }
+    
+    .infinity-heart {
+      font-size: 4rem;
+      margin: 2rem 0;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    .forever-message {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      line-height: 2;
+      margin: 2rem 0;
+      font-weight: 500;
+    }
+    
+    .final-hearts {
+      font-size: 2.5rem;
+      margin: 2rem 0;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    .restart-btn {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, var(--blush), var(--soft-rose));
+      color: white;
+      padding: 1rem 2.5rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-in 2s forwards;
+    }
+  </style>
+</head>
+<body>
+
+<div class="forever-container scale-in">
+  <div class="card forever-card">
+    <div class="infinity-heart">🎂</div>
+    
+    <h1 class="forever-title">Happy Birthday, Sakina</h1>
+    
+    <div class="forever-message">
+      Today is for smiles, cake, laughter, and joy.<br>
+      Wishing you the happiest birthday ever. 🎈
+    </div>
+    
+    <div class="final-hearts">🎉 🎂 🎁 ✨ 🥳</div>
+    
+    <p style="color: var(--text-light); font-size: 1.2rem; margin-top: 2rem;">
+      Have the best birthday and an amazing year ahead 🌟
+    </p>
+    
+    <button class="restart-btn" onclick="window.location.href='../index.html'">
+      ↺ Celebrate Again
+    </button>
+  </div>
+</div>
+
+<script src="../js/effects.js"></script>
+<script>
+  // Gentle confetti for celebration
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => createConfetti(), 500);
+    
+    // Create gentle hearts
+    setInterval(() => {
+      if (Math.random() > 0.7) {
+        createSparkles();
+      }
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>

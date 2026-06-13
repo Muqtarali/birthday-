@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reasons To Celebrate You 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .reasons-container {
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .reasons-card {
+      max-width: 700px;
+      padding: 3rem;
+    }
+    
+    .reasons-title {
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(135deg, var(--light-red), var(--blush));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .reasons-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    
+    .reason-item {
+      background: linear-gradient(135deg, var(--cream), white);
+      padding: 1.5rem 2rem;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 10px 25px var(--shadow-soft);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    
+    .reason-item:hover {
+      transform: translateX(15px) scale(1.03);
+      box-shadow: 0 15px 35px var(--shadow-medium);
+      border-color: var(--soft-rose);
+      background: linear-gradient(135deg, var(--pastel-pink), white);
+    }
+    
+    .reason-heart {
+      font-size: 2.5rem;
+      min-width: 50px;
+      text-align: center;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    .reason-text {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+    
+    .clicked {
+      animation: scaleIn 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="reasons-container fade-in">
+  <div class="card reasons-card">
+    <h1 class="reasons-title">🎉 Reasons To Celebrate You 🎉</h1>
+    <p class="subtitle">Just a few reasons this birthday is special</p>
+
+    <div class="reasons-grid">
+      <div class="reason-item" onclick="clickReason(this)">
+        <div class="reason-heart">🎂</div>
+        <div class="reason-text">Your smile lights up every room</div>
+      </div>
+      
+      <div class="reason-item" onclick="clickReason(this)">
+        <div class="reason-heart">🎈</div>
+        <div class="reason-text">Your kindness makes every day better</div>
+      </div>
+      
+      
+      <div class="reason-item" onclick="clickReason(this)">
+        <div class="reason-heart">🎁</div>
+        <div class="reason-text">How you make every moment special</div>
+      </div>
+      
+      <div class="reason-item" onclick="clickReason(this)">
+        <div class="reason-heart">🥳</div>
+        <div class="reason-text">Everything about you deserves a celebration</div>
+      </div>
+    </div>
+
+    <button class="next-btn" onclick="nextPage()" style="display: block; margin: 2rem auto 0;">
+      <span>Open Your Gift</span>
+      <span class="btn-emoji">🎁</span>
+    </button>
+  </div>
+</div>
+
+<script src="../js/effects.js"></script>
+<script>
+  function clickReason(element) {
+    element.classList.add('clicked');
+    createSparkles();
+    
+    setTimeout(() => {
+      element.classList.remove('clicked');
+    }, 300);
+  }
+  
+  function nextPage() {
+    pageTransition('question.html');
+  }
+  
+  // Stagger animation for reason items
+  window.addEventListener('DOMContentLoaded', () => {
+    const reasons = document.querySelectorAll('.reason-item');
+    reasons.forEach((reason, index) => {
+      reason.style.opacity = '0';
+      reason.style.transform = 'translateX(-30px)';
+      
+      setTimeout(() => {
+        reason.style.transition = 'all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        reason.style.opacity = '1';
+        reason.style.transform = 'translateX(0)';
+      }, index * 150);
+    });
+  });
+</script>
+
+</body>
+</html>

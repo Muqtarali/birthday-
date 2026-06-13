@@ -1,0 +1,190 @@
+.landing-container {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+}
+
+.romantic-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4rem 3rem;
+  border-radius: 35px;
+  text-align: center;
+  box-shadow: 0 25px 70px var(--shadow-medium), 0 0 80px var(--glow);
+  position: relative;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.romantic-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--light-red), var(--blush));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  animation: gentlePulse 2s ease-in-out infinite;
+  text-shadow: none;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.02); }
+}
+
+.romantic-subtitle {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.heart-divider {
+  font-size: 2.5rem;
+  margin: 1.5rem 0;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.05); }
+}
+
+.start-btn {
+  background: linear-gradient(135deg, var(--light-red), var(--blush));
+  color: var(--white);
+  padding: 1.2rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 10px 30px var(--shadow-medium);
+  transition: all 0.4s ease;
+}
+
+.start-btn:hover {
+  box-shadow: 0 15px 40px var(--shadow-medium), 0 0 30px var(--glow);
+  transform: translateY(-5px) scale(1.08);
+}
+
+.btn-emoji {
+  font-size: 1.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.glow-btn {
+  animation: softGlow 2s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+  0%, 100% { box-shadow: 0 10px 30px var(--shadow-medium); }
+  50% { box-shadow: 0 10px 40px var(--shadow-medium), 0 0 40px var(--glow); }
+}
+
+/* Birthday Question Section */
+.question-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.birthday-question {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--light-red), var(--blush));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+.button-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  position: relative;
+  min-height: 80px;
+  flex-wrap: wrap;
+}
+
+.yes-button {
+  background: linear-gradient(135deg, var(--light-red), var(--blush));
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px var(--shadow-medium);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.yes-button:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 15px 40px var(--shadow-medium), 0 0 30px var(--glow);
+}
+
+.no-button {
+  background: linear-gradient(135deg, #E0E0E0, #BDBDBD);
+  color: #666;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.no-button:hover {
+  background: linear-gradient(135deg, #D0D0D0, #ADADAD);
+}
+
+.hint-text {
+  font-size: 1rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .birthday-question {
+    font-size: 1.5rem;
+  }
+  
+  .button-container {
+    min-height: 100px;
+  }
+  
+  .yes-button, .no-button {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+}
