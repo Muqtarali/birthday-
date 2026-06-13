@@ -88,6 +88,71 @@
     .video-wrap { margin-top: 1.2rem; border-radius: 12px; overflow: hidden; }
     .video-wrap video { width: 100%; height: auto; display: block; max-height: 420px; object-fit: cover; border-radius: 12px; }
     .video-fallback { padding: 1rem; text-align: center; color: var(--text-light); font-size: 0.95rem; }
+
+    @media (max-width: 768px) {
+      .gift-container {
+        padding: 1rem 0.75rem;
+      }
+
+      .gift-card {
+        max-width: 100%;
+        padding: 2.25rem 1.25rem;
+      }
+
+      .gift-title {
+        font-size: 2rem;
+        line-height: 1.25;
+      }
+
+      .gift-instruction,
+      .gift-text {
+        font-size: 1.05rem;
+      }
+
+      .gift-box {
+        font-size: 5.5rem;
+        margin: 1.25rem 0;
+      }
+
+      .promise-box {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+        border-radius: 16px;
+      }
+
+      .video-wrap video {
+        max-height: 280px;
+        object-fit: contain;
+        background: #000;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gift-container {
+        padding: 0.75rem 0.5rem;
+      }
+
+      .gift-card {
+        padding: 1.75rem 1rem;
+      }
+
+      .gift-title {
+        font-size: 1.7rem;
+      }
+
+      .gift-instruction,
+      .gift-text {
+        font-size: 0.95rem;
+      }
+
+      .gift-box {
+        font-size: 4.5rem;
+      }
+
+      .promise-box {
+        padding: 1rem;
+      }
+    }
     
   </style>
 </head>
@@ -97,7 +162,7 @@
   <div class="card gift-card">
     <h1 class="gift-title">🎁 A Special Birthday Surprise 🎂</h1>
     
-    <p class="gift-instruction" id="instruction">Click the gift to open your birthday message! 👇</p>
+    <p class="gift-instruction" id="instruction">Click the video to watch your birthday surprise! 👇</p>
     
     <div class="gift-box" id="giftBox" onclick="openGift()">🎁</div>
     
